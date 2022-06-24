@@ -1,0 +1,27 @@
+{# ! BASE COMPONENT STRUCTURE #}
+
+{# PARAMETERS -->  #}
+
+{# LOAD PACKAGES/TAGs #}
+{% load static %}
+{% load compress %}
+
+{# ? -------------------------------- CONTENT -------------------------------- #}
+<div id="" class="">
+
+</div>
+
+{# ? -------------------------------- STYLES -------------------------------- #}
+{# ! WARNING: if use any django template variable {{ any }}, remove compress #}
+{% compress css %}
+<style>
+
+</style>
+{% endcompress %}
+{# ? -------------------------------- SCRIPT -------------------------------- #}
+{# ! WARNING: if use any django template variable {{ any }}, remove compress #}
+{% compress js %}
+<script>
+
+</script>
+{% endcompress %}

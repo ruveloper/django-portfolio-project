@@ -17,11 +17,11 @@
     <meta name="author" content="Ruben Caballero">
 
     {# Block title with default #}
-    <title>{% block title %}👨‍💻Ruveloper{% endblock title %}</title>
+    <title>{% block title %}Ruveloper{% endblock title %}</title>
 
     {# Favicon #}
-    <link rel="icon" href="{% static 'website/img/favicon.png' %}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{% static 'website/img/apple-touch-icon.png' %}">
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'images/logo.png' %}">
 
     {# ----------------------------- STYLESHEETS - CSS -----------------------------#}
     {% block css %}
@@ -31,7 +31,7 @@
         {% tailwind_css %}
 
         {% compress css %}
-            <link rel="stylesheet" href="{% static 'website/css/base.css' %}">
+            <link rel="stylesheet" href="{% static 'css/main.css' %}">
         {% endcompress %}
     {% endblock css %}
 
@@ -39,10 +39,16 @@
     {# Placed at the top of the document. Pages load faster and at the end execute the scripts (defer) #}
     {% block javascript %}
         <!-- VENDOR MINIFIED JS -->
+        <script defer src="{% static 'js/vendor/typed.min.js' %}"></script>
+        {# Flowbite script #}
+        <script defer src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+        {# Font Awesome python package #}
+        <script defer src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 
         <!-- Main JS -->
         {% compress js %}
-            <script defer src="{% static 'website/js/base.js' %}"></script>
+            <script defer src="{% static 'js/main.js' %}"></script>
+            <script defer src="{% static 'js/background_animated_gradient.js' %}"></script>
         {% endcompress %}
     {% endblock javascript %}
 
@@ -50,19 +56,85 @@
 <body class="bg-gray-50 font-serif leading-normal tracking-normal">
 
 <!-----------------------------------------------------------------------------------------------
-    Header and Navbar
+    Navbar
 ------------------------------------------------------------------------------------------------->
-<header id="header">
+<header id="navbar">
     {% block header %}
+        <nav class="w-screen md:h-16 px-4 py-2.5
+        fixed top-0 z-10 bg-gray-300 bg-opacity-30 backdrop-filter backdrop-blur-lg drop-shadow-lg">
+            <div class="container h-full flex flex-wrap justify-between items-center mx-auto
+            font-sans font-bold text-xl text-white">
+                {# -------- Ruveloper link -------- #}
+                <a href="/" class="flex items-center">
+                    <span class="self-center text-xl font-semibold">ruveloper</span>
+                </a>
+                <div class="flex items-center gap-x-3 md:order-2">
+                    {# -------- Social links -------- #}
+                    <a href="https://github.com/ruveloper" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ruveloper" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    {# -------- Menu button -------- #}
+                    <button data-collapse-toggle="mobile-menu-4" type="button"
+                            class="inline-flex items-center p-2 text-sm rounded-lg md:hidden
+                            hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                            aria-controls="mobile-menu-4" aria-expanded="false">
+                        <span class="sr-only">Menú</span>
+                        <i class="fa-solid fa-bars w-6 h-6"></i>
+                        <i class="fa-solid fa-x hidden w-6 h-6"></i>
+                    </button>
+                </div>
+                {# -------- Menu entries -------- #}
+                <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-4">
+                    <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0
+                    font-sans font-bold text-xl text-white ">
+                        <li>
+                            <a href="/"
+                               class="block py-2 pr-4 pl-3 border-b border-gray-100
+                               hover:bg-white hover:bg-opacity-30
+                               md:px-2 md:py-1 md:border-0 md:hover:border-b md:hover:bg-transparent md:hover:drop-shadow-lg"
+                               aria-current="page">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="/sobre-mi"
+                               class="block py-2 pr-4 pl-3 border-b border-gray-100
+                               hover:bg-white hover:bg-opacity-30
+                               md:px-2 md:py-1 md:border-0 md:hover:border-b md:hover:bg-transparent md:hover:drop-shadow-lg"
+                            >Sobre mí</a>
+                        </li>
+                        <li>
+                            <a href="/proyectos"
+                               class="block py-2 pr-4 pl-3 border-b border-gray-100
+                               hover:bg-white hover:bg-opacity-30
+                               md:px-2 md:py-1 md:border-0 md:hover:border-b md:hover:bg-transparent md:hover:drop-shadow-lg"
+                            >Proyectos</a>
+                        </li>
+                        <li>
+                            <a href="/contacto"
+                               class="block py-2 pr-4 pl-3 border-b border-gray-100
+                               hover:bg-white hover:bg-opacity-30
+                               md:px-2 md:py-1 md:border-0 md:hover:border-b md:hover:bg-transparent md:hover:drop-shadow-lg"
+                            >Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     {% endblock header %}
 </header>
 
 <!-----------------------------------------------------------------------------------------------
     Main Content
 ------------------------------------------------------------------------------------------------->
-<main id="main">
-    {% block main-content %}
-    {% endblock main-content %}
+<main id="main" class="relative">
+    {# -------- Background -------- #}
+    <div class="w-screen h-screen m-0 p-0 bg-gradient-to-r from-violet-500 to-sky-500 overflow-hidden">
+        <canvas id="base-canvas-animated-gradient" class="w-full h-full"></canvas>
+    </div>
+    {# ------- Main content ------- #}
+    <div class="absolute top-0 w-screen">
+        {% block main-content %}
+        {% endblock main-content %}
+    </div>
 </main>
 
 <!-----------------------------------------------------------------------------------------------

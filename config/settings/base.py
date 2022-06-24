@@ -30,6 +30,7 @@ THIRD_PARTY_APPS = [
     # Singleton Models - django-solo
     'solo',
     'widget_tweaks',
+    'fontawesomefree',
     'tailwind',
     'django_browser_reload',
     # Compress html and static files

@@ -19,7 +19,7 @@ module.exports = {
          * Adjust the following line to match your project structure.
          */
         '../../templates/**/*.html',
-        
+
         /* 
          * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
          * Adjust the following line to match your project structure.
@@ -40,9 +40,25 @@ module.exports = {
          * and make sure the pattern below matches your project structure.
          */
         // '../../**/*.py'
+
+        /**
+         * Flowbite: tailwind ui-kit
+         */
+        './node_modules/flowbite/**/*.js',
     ],
     theme: {
-        extend: {},
+        extend: {
+            // Add Ruveloper pallette
+            colors: {
+                'ruveloper': {
+                    100: '#07c7f2',
+                    300: '#0cb1f2',
+                    500: '#0c9af2',
+                    700: '#0f71f2',
+                    900: '#0f5af2',
+                }
+            },
+        },
     },
     plugins: [
         /**
@@ -50,9 +66,12 @@ module.exports = {
          * for forms. If you don't like it or have own styling for forms,
          * comment the line below to disable '@tailwindcss/forms'.
          */
+        require('tailwindcss'),
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
+        require('autoprefixer'),
+        require('flowbite/plugin'),
     ],
 }
