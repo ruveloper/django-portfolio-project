@@ -1,0 +1,64 @@
+{# ! BASE PAGE STRUCTURE #}
+{% extends 'website/base.html' %}
+
+{% comment %}
+PARAMETERS:
+    - templates:
+        - icon_name:str --> fontawesome name of representative icon for the section, ex:"fa-solid fa-laptop-code"
+{% endcomment %}
+
+{# LOAD PACKAGES/TAGs #}
+{% load static %}
+
+{# Website title #}
+{% block title %}{{ block.super }} - Sobre mí{% endblock %}
+
+{# -------------------------------- WEBPAGE CONTENT -------------------------------- #}
+{% block main-content %}
+
+    <!------------------------------------------------------------------------------
+    About Page Section
+    -------------------------------------------------------------------------------->
+    <section class="container mx-auto mt-48 mb-10 px-10 lg:px-20 pb-10 rounded-xl bg-white shadow-xl
+    page-radial-cut">
+
+        {# -------- Section icon -------- #}
+        {% include 'website/components/icon_header.html' with icon_name="fa-solid fa-user-astronaut" %}
+
+        {# -------- Section Content -------- #}
+
+        {# ---- Card ---- #}
+        <div class="w-full h-fit flex flex-wrap justify-center items-center">
+            {# Card image #}
+            <img class="w-96 md:w-2/6 rounded-t-md md:rounded-md"
+                 src="{% static 'images/profile_alt.jpg' %}" alt="card image">
+            {# Card content #}
+            <div class="w-96 md:w-3/6 p-5 rounded-b-2xl md:rounded-2xl
+            bg-white md:-translate-x-10 drop-shadow-lg">
+                <p class="text-justify font-normal">
+                    Mi nombre es Ruben Caballero y me desempeño como Desarrollador de Software. A lo largo de mi carrera
+                    me he enfocado en realizar productos de calidad que cumplan con los mejores
+                    estándares y buenas prácticas en
+                    <span class="underline decoration-2 decoration-fuchsia-600">diseño</span>,
+                    <span class="underline decoration-2 decoration-green-600">lógica de negocio</span> y
+                    <span class="underline decoration-2 decoration-indigo-600">seguridad</span>.
+                    He trabajado para diversas compañías implementando aplicaciones, servicios web y soluciones de
+                    automatización.
+                </p>
+                <p class="w-full md:w-5/6 md:ml-auto my-5 p-5 rounded-md bg-gray-100 text-end">
+                    <span class="font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-violet-700">
+                        @ruveloper</span> seguirá siendo el resultado de mi pasión por la tecnología y la programación.
+                </p>
+            </div>
+        </div>
+
+        {# ---- Stack ---- #}
+        <section class="w-full h-fit mt-20 mb-10">
+            {% include 'website/components/section_title.html' with section_title="Mi stack de tecnologías" %}
+            {% include 'website/components/tech_stack.html' %}
+        </section>
+
+
+    </section>
+
+{% endblock %}

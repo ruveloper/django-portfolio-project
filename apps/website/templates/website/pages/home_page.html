@@ -15,11 +15,13 @@
 
         {# -------- Dev Photo -------- #}
         <div class="absolute inset-0">
-            <div class="container h-screen mx-auto flex flex-row-reverse
+            <picture class="container h-screen mx-auto flex flex-row-reverse
             justify-center md:justify-start items-end">
-                <img class="h-[50%] md:h-5/6 min-w-fit drop-shadow-[-30px_35px_35px_rgba(0,0,0,0.5)]"
-                     src="{% static 'images/profile_x1366.png' %}" alt="">
-            </div>
+                <!-- load webp if supported, otherwise load png-->
+                <source srcset="{% static 'images/profile_xl.webp' %}" type="image/webp">
+                <img class="h-1/2 md:h-5/6 min-w-fit drop-shadow-[-30px_35px_35px_rgba(0,0,0,0.5)]"
+                     src="{% static 'images/profile_md.png' %}" alt="">
+            </picture>
         </div>
 
         {# -------- Content -------- #}
@@ -34,7 +36,7 @@
                      src="{% static 'images/Logo.svg' %}" alt="">
 
                 {# -------- Glass Card -------- #}
-                <div class="font-sans text-gray-800
+                <div class="text-gray-800
                 m-5 ml-14 p-5 rounded-xl
                 md:max-w-sm md:translate-x-8 md:
                 lg:max-w-lg lg:translate-x-28 lg:
@@ -48,14 +50,14 @@
                         </span>
                     </p>
                     <p class="my-3 font-bold text-white {# text-gray-800 #}
-                    md:text-lg lg:text-xl xl:text-2xl ">
+                    md:text-lg lg:text-xl xl:text-2xl">
                         Mi nombre es Ruben Caballero y soy un desarrollador de software Full-Stack. <br>
                         Me enfoco en
                         <span class="typed"
                               data-typed-items="
-                              backend con <span class='font-extrabold text-emerald-700'>Python.</span>,
-                              frontend con <span class='font-extrabold text-yellow-400'>Javascript.</span>,
-                              móvil con <span class='font-extrabold text-blue-600'>Flutter.</span>"></span>
+                              backend con <span class='font-extrabold bg-emerald-700 text-white px-2 py-1 rounded-lg'>Python</span>,
+                              frontend con <span class='font-extrabold bg-amber-500 text-white px-2 py-1 rounded-lg'>Javascript</span>,
+                              móvil con <span class='font-extrabold bg-blue-600 text-white px-2 py-1 rounded-lg'>Flutter</span>"></span>
                     </p>
                 </div>
 

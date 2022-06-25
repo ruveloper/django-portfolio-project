@@ -1,0 +1,111 @@
+{# ! DYNAMIC FLOWBITE COMPONENT - Requires Flowbite installed #}
+
+{% comment %}
+PARAMETERS
+
+{% endcomment %}
+
+{# LOAD PACKAGES/TAGs #}
+{% load static %}
+{% load compress %}
+
+{# ? -------------------------------- CONTENT ------------------------------- #}
+
+<div class="mb-4">
+    <ul class="flex flex-wrap justify-center md:justify-start items-end text-sm font-medium text-center" id="techTab"
+        data-tabs-toggle="#techTabContent"
+        role="tablist">
+        <li class="mr-2" role="presentation">
+            <button class="inline-block px-4 py-3 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 border-blue-600"
+                    type="button" role="tab"
+                    id="python-tab" data-tabs-target="#python-tab-content" aria-controls="python-tab-content"
+                    aria-selected="true">
+                <div class="flex flex-col gap-2">
+                    <img class="h-10 mx-auto" src="{% static 'images/tech_logos/python.svg' %}" alt="python">
+                    <p>Python</p>
+                </div>
+            </button>
+        </li>
+        <li class="mr-2" role="presentation">
+            <button class="inline-block px-4 py-3 rounded-t-lg border-b-2 hover:text-gray-600 hover:border-gray-300 text-gray-500 border-gray-100"
+                    type="button" role="tab"
+                    id="django-tab" data-tabs-target="#django" aria-controls="django"
+                    aria-selected="false">
+                <div class="flex flex-col gap-2">
+                    <img class="h-10 mx-auto" src="{% static 'images/tech_logos/django.svg' %}" alt="python">
+                    <p>Django</p>
+                </div>
+            </button>
+        </li>
+        <li class="mr-2" role="presentation">
+            <button class="inline-block px-4 py-3 rounded-t-lg border-b-2 hover:text-gray-600 hover:border-gray-300 text-gray-500 border-gray-100"
+                    type="button" role="tab"
+                    id="web-tab" data-tabs-target="#web" aria-controls="web"
+                    aria-selected="false">
+                <div class="flex flex-col gap-2">
+                    <img class="h-10 mx-auto" src="{% static 'images/tech_logos/web.svg' %}" alt="python">
+                    <p>HTML, CSS, Javascript</p>
+                </div>
+            </button>
+        </li>
+        <li class="mr-2" role="presentation">
+            <button class="inline-block px-4 py-3 rounded-t-lg border-b-2 hover:text-gray-600 hover:border-gray-300 text-gray-500 border-gray-100"
+                    type="button" role="tab"
+                    id="flutter-tab" data-tabs-target="#flutter" aria-controls="flutter"
+                    aria-selected="false">
+                <div class="flex flex-col gap-2">
+                    <img class="h-10 mx-auto" src="{% static 'images/tech_logos/flutter.svg' %}" alt="python">
+                    <p>Flutter</p>
+                </div>
+            </button>
+        </li>
+    </ul>
+</div>
+<div id="techTabContent">
+    <div id="python-tab-content" role="tabpanel" aria-labelledby="python-tab"
+         class="p-4 bg-gray-50 rounded-lg">
+        <p class="text-sm text-gray-500">
+            <strong class="font-medium text-gray-800">Python es un lenguaje de programación multipropósito</strong>
+            y es uno de los lenguajes más usados en el mundo. Se utiliza en procesos de automatización, diseño de
+            aplicaciones, machine learning, ciencia de datos, desarrollo backend, entre otros.</p>
+    </div>
+    <div id="django" role="tabpanel" aria-labelledby="django-tab"
+         class="hidden p-4 bg-gray-50 rounded-lg">
+        <p class="text-sm text-gray-500">
+            <strong class="font-medium text-gray-800">Django es el framework de desarrollo web-backend mas famoso de
+                Python</strong>,
+            con más de 15 años en el mercado, es ampliamente utilizado por empresas como Google, Instagram,
+            Spotify y Mozilla que confían en él para construir aplicaciones web actualmente.</p>
+    </div>
+    <div id="web" role="tabpanel" aria-labelledby="web-tab"
+         class="hidden p-4 bg-gray-50 rounded-lg">
+        <p class="text-sm text-gray-500">
+            <strong class="font-medium text-gray-800">HTML, CSS y Javascript es el conjunto de tecnologías que cimientan
+                la web</strong>,
+            con ellas se estructura, se proporciona estilos y se otorga funcionalidad a cada página en internet.</p>
+    </div>
+    <div id="flutter" role="tabpanel" aria-labelledby="flutter-tab"
+         class="hidden p-4 bg-gray-50 rounded-lg">
+        <p class="text-sm text-gray-500">
+            <strong class="font-medium text-gray-800">Flutter es un framework de desarrollo multiplataforma creado sobre
+                Dart</strong>,
+            con él se pueden crear aplicaciones móviles, web o de escritorio desde una misma base de código. Fue
+            desarrollado por Google en el 2011 y hasta el momento lo utilizan empresas como BMW, EBAY, Alibaba, Toyota y
+            Nubank.</p>
+    </div>
+</div>
+
+
+{# ? --------------------------------- STYLES -------------------------------- #}
+{% compress css %}
+    <style>
+
+    </style>
+{% endcompress %}
+
+{# ? --------------------------------- SCRIPT -------------------------------- #}
+{% compress js %}
+    <script>
+
+    </script>
+{% endcompress %}
